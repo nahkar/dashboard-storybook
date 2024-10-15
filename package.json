@@ -37,6 +37,7 @@
 		"react-chartjs-2": "^5.2.0",
 		"react-dom": "^18.2.0",
 		"react-helmet-async": "^2.0.5",
+		"react-hook-form": "^7.53.0",
 		"react-router-dom": "^6.23.1",
 		"rsuite": "^5.64.0",
 		"styled-components": "^6.1.13"

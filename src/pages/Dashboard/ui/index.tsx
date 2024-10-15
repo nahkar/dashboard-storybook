@@ -1,9 +1,9 @@
-import { Tabs } from '@/features/Tabs';
+import { Search } from '@/features/Search';
 
 export const Dashboard = () => {
 	return (
 		<>
-			<Tabs />
+			<Search title="Your Events" />
 		</>
 	);
 };
