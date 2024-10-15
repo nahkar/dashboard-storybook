@@ -1,0 +1,21 @@
+# Cache modules using lock file
+cache:
+  key:
+    files:
+      - yarn.lock
+  paths:
+    - node_modules/
+
+deploy_static:
+  only:
+    - master
+  script:
+    - VITE_PROD_SERVER=$VITE_PROD_SERVER VITE_SERVER_URL=$VITE_DEV_SERVER VITE_BASE_URL=$DEV_BASE_URL VITE_AUTH_USERNAME=$VITE_AUTH_USERNAME VITE_AUTH_PASSWORD=$VITE_AUTH_PASSWORD docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app -u `id -u $USER`:`id -g $USER` --env HOME=. --env 'VITE_SERVER_URL' --env 'VITE_BASE_URL' --env 'VITE_PROD_SERVER' --env 'VITE_AUTH_USERNAME' --env 'VITE_AUTH_PASSWORD' node:21 bash -c 'yarn install; yarn build;'
+      - ansible-playbook -l marc-do-dev-sw-sw deploy/static.yml
+
+deploy_static_dev:
+  only:
+    - development
+  script:
+    - VITE_PROD_SERVER=$VITE_PROD_SERVER VITE_SERVER_URL=$VITE_DEV_SERVER VITE_BASE_URL=$DEV_BASE_URL VITE_AUTH_USERNAME=$VITE_AUTH_USERNAME VITE_AUTH_PASSWORD=$VITE_AUTH_PASSWORD docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app -u `id -u $USER`:`id -g $USER` --env HOME=. --env 'VITE_SERVER_URL' --env 'VITE_BASE_URL' --env 'VITE_PROD_SERVER' --env 'VITE_AUTH_USERNAME' --env 'VITE_AUTH_PASSWORD' node:21 bash -c 'yarn install; yarn build;'
+    - ansible-playbook -l marc-do-dev-sw-sw deploy/static.yml
