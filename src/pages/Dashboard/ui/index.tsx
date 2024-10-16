@@ -1,9 +1,9 @@
-import { Search } from '@/features/Search';
+import { CountdownTimer } from '@/shared/components/CountdownTimer';
 
 export const Dashboard = () => {
 	return (
 		<>
-			<Search title="Your Events" />
+			<CountdownTimer />
 		</>
 	);
 };
