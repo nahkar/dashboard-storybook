@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { Calendar } from '.';
+import { Card } from '.';
 
 const meta = {
-	title: 'widgets/Calendar',
-	component: Calendar,
+	title: 'widgets/Card',
+	component: Card,
 	parameters: {
 		layout: 'centered',
 	},
@@ -13,10 +13,14 @@ const meta = {
 	args: {},
 	decorators: [
 		(Component) => {
-			return <Component />;
+			return (
+				<div style={{ width: '800px', height: '350px' }}>
+					<Component />
+				</div>
+			);
 		},
 	],
-} satisfies Meta<typeof Calendar>;
+} satisfies Meta<typeof Card>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

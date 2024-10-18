@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Search } from '.';
 
 const meta = {
-	title: 'Search',
+	title: 'features/Search',
 	component: Search,
 	parameters: {
 		layout: 'centered',

@@ -1,7 +1,8 @@
+import linkIcon from '@assets/link.icon.svg';
+
 import { ForwardType } from '../models/types';
 import calendarIcon from './img/calendar.icon.svg';
 import calendarSuccessIcon from './img/calendarSuccess.icon.svg';
-import linkIcon from './img/link.icon.svg';
 import {
 	Forward__IconWrapper,
 	Forward__Title,

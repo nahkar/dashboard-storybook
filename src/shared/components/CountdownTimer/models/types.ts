@@ -1,1 +1,1 @@
-export type CountdownType = 'start' | 'close';
+export type CountdownType = 'start' | 'close' | 'ended';

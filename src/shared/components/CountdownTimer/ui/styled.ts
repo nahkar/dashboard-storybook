@@ -8,6 +8,8 @@ export const getCountdownBackground = (type: CountdownType) => {
 			return '#009300';
 		case 'close':
 			return '#194ED5';
+		case 'ended':
+			return '#919EAB';
 	}
 };
 
@@ -57,8 +59,8 @@ export const CountdownTimer__Time = styled.div<{ $type: CountdownType }>`
 		transform: translate(-50%, -50%);
 	}
 `;
-export const CountdownTimer__Label = styled.div`
-	color: #194ed5;
+export const CountdownTimer__Label = styled.div<{ $type: CountdownType }>`
+	color: ${(props) => (props.$type === 'ended' ? '#919EAB' : '#194ed5')};
 	font-family: 'Public Sans';
 	font-size: 10px;
 	font-weight: 400;

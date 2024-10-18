@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Activity } from '.';
 
 const meta = {
-	title: 'Activity',
+	title: 'widgets/Activity',
 	component: Activity,
 	parameters: {
 		layout: 'centered',

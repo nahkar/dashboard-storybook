@@ -14,6 +14,7 @@ export const Modal = ({ children, isOpenModal, handleCloseModal }: Props) => {
 				onClose={handleCloseModal}
 				aria-labelledby="modal-modal-title"
 				aria-describedby="modal-modal-description"
+				data-testid="modal"
 			>
 				<div>{children}</div>
 			</MuiModal>

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Forward } from '.';
 
 const meta = {
-	title: 'Forward',
+	title: 'components/Forward',
 	component: Forward,
 	parameters: {
 		layout: 'centered',

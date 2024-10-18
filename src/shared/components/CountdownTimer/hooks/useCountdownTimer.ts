@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 
-export const useCountdownTimer = () => {
-	const initialTime = 60 * 60 * 24 * 2; // 2 days
+import { CountdownType } from '../models/types';
+
+type Props = {
+	type: CountdownType;
+};
+export const useCountdownTimer = ({ type }: Props) => {
+	const initialTime = type === 'ended' ? 0 : 60 * 60 * 24 * 2; // 2 days
 	const [timeRemaining, setTimeRemaining] = useState(initialTime);
 
 	useEffect(() => {
