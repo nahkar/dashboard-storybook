@@ -1,9 +1,11 @@
 import styled from 'styled-components';
 
 export const Activity__Wrapper = styled.div`
-	width: 360px;
+	min-width: 300px;
+	max-width: 505px;
 	border-radius: 12px;
 	background: #fff;
+
 	box-shadow: 0px 8px 16px 0px rgba(145, 158, 171, 0.16);
 `;
 export const Activity__Header = styled.header`
@@ -27,8 +29,7 @@ export const Activity__Footer = styled.footer`
 	justify-content: center;
 `;
 export const Activity__List = styled.ul`
-	height: 450px;
-	overflow-y: scroll;
+	min-height: 450px;
 `;
 export const Activity__Item = styled.li`
 	padding: 12px 20px;

@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from 'styled-components';
 
 import { ThemeT } from './theme';
 
-export const GlobalStyle = createGlobalStyle<{ theme: ThemeT }>`	
+export const GlobalStyle = createGlobalStyle<{ theme: ThemeT; $isMenuOpen: boolean }>`	
   *, *::before, *::after{
       box-sizing: border-box; 
   }
@@ -85,6 +85,14 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeT }>`
       height: 100%; 
       scroll-behavior: smooth; 
       font-family: 'Public Sans', sans-serif;
+      background: #F4F6F8;
+      padding: 0;
+      margin: 0;
+  }
+  body {
+    padding: ${({ $isMenuOpen }) => ($isMenuOpen ? '0 0 0 253px' : '0 0 0 100px')};
+    transition: padding 0.2s;
+
   }
 
   blockquote, q {
@@ -105,11 +113,22 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeT }>`
   }
 `;
 
-export const Container = styled.div<{ $mb?: number; $width?: number }>`
+export const StyledMainWrapper = styled.div`
+	gap: 30px;
+	display: flex;
+`;
+export const StyledContentWrapper = styled.div`
+	min-width: 739px;
+	max-width: 739px;
+`;
+export const StyledSidebarRightWrapper = styled.div`
+	width: 100%;
+`;
+export const StyledContainer = styled.div<{ $mb?: number; $width?: number }>`
 	margin-bottom: ${({ $mb }) => $mb || 0}px;
 	width: ${({ $width }) => `${$width}px` || '100%'};
 `;
-export const EllipsisSection = styled.div`
+export const StyledEllipsisSection = styled.div`
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;

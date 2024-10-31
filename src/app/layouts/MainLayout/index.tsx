@@ -7,7 +7,6 @@ export const MainLayout = () => {
 	return (
 		<MainLayout__Wrapper>
 			<MainLayout__Inner>
-				<header>Header</header>
 				<MainLayout__ContentWrapper>
 					<HelmetProvider>
 						<Helmet>
@@ -21,7 +20,6 @@ export const MainLayout = () => {
 					<Outlet />
 				</MainLayout__ContentWrapper>
 			</MainLayout__Inner>
-			<footer></footer>
 		</MainLayout__Wrapper>
 	);
 };

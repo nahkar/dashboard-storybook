@@ -5,6 +5,7 @@ export const Search__Wrapper = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 10px;
+	position: relative;
 `;
 export const Search__Title = styled.h4`
 	color: #212b36;
@@ -13,6 +14,9 @@ export const Search__Title = styled.h4`
 	font-style: normal;
 	font-weight: 700;
 	line-height: 30px;
+	span {
+		font-weight: 400;
+	}
 `;
 export const Search__Button = styled.button`
 	border-radius: 10px;
@@ -29,6 +33,8 @@ export const Search__ModalWrapper = styled.div`
 	box-shadow: 0px 8px 16px 0px rgba(145, 158, 171, 0.16);
 	padding: 20px;
 	width: 615px;
-	left: -50%;
-	transform: translateX(50%);
+	left: 100%;
+	position: absolute;
+	z-index: 1;
+	transform: translateX(-55px);
 `;

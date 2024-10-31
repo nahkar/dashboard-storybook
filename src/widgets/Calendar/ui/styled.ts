@@ -1,7 +1,8 @@
 import { styled } from 'styled-components';
 
 export const Calendar__Wrapper = styled.div`
-	width: 360px;
+	min-width: 300px;
+	max-width: 505px;
 	border-radius: 12px;
 	background: #fff;
 	overflow: hidden;

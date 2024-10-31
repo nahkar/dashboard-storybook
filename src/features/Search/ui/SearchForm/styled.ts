@@ -31,3 +31,12 @@ export const SearchForm__InputField = styled.input`
 		line-height: 24px;
 	}
 `;
+export const StyledSearchFormClearButton = styled.img`
+	cursor: pointer;
+	opacity: 1;
+	transition: all 0.3s ease-in-out;
+	&:hover {
+		opacity: 0.7;
+		transition: all 0.3s ease-in-out;
+	}
+`;

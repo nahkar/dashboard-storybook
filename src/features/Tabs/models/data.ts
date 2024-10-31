@@ -1,18 +1,14 @@
 export const tabsData = [
 	{
 		id: 1,
-		title: 'My Events',
+		title: 'Started Events',
 	},
 	{
 		id: 2,
-		title: 'Other Events',
+		title: 'My Events',
 	},
 	{
 		id: 3,
-		title: 'All Events',
-	},
-	{
-		id: 4,
-		title: 'Past Events',
+		title: 'Other Events',
 	},
 ];

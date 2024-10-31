@@ -182,7 +182,7 @@ export const theme = {
 		mobile: '538px',
 		miniTablet: '909px',
 		tablet: '1438px',
-		desktop: '1439px',
+		desktop: '1440px',
 	},
 	minWidth: '390px',
 } as const;

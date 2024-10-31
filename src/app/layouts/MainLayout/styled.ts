@@ -6,21 +6,13 @@ export const MainLayout__Wrapper = styled.main`
 	flex-direction: column;
 	min-height: 100vh;
 	justify-content: space-between;
+	transition: all 0.2s;
+	min-width: 1129px;
+	max-width: 1334px;
+	margin: auto;
 `;
 export const MainLayout__ContentWrapper = styled.div<{ theme: ThemeT }>`
-	max-width: 1440px;
-	padding: 26px 6px 0 26px;
 	margin: 0 auto;
-	@media screen and (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-		width: 906px;
-	}
-	@media screen and (max-width: ${(props) => props.theme.breakpoints.miniTablet}) {
-		width: auto;
-	}
-	@media screen and (max-width: ${(props) => props.theme.breakpoints.mobile}) {
-		padding: 0 20px;
-		width: 100%;
-		min-width: ${(props) => props.theme.minWidth};
-	}
+	padding: 30px;
 `;
 export const MainLayout__Inner = styled.div``;
