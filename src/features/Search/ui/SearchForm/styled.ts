@@ -1,7 +1,9 @@
 import { styled } from 'styled-components';
 
 export const SearchForm__Wrapper = styled.div``;
-export const SearchForm__Row = styled.div``;
+export const SearchForm__Row = styled.div<{ $mb?: number }>`
+	${({ $mb }) => $mb && `margin-bottom: ${$mb}px;`}
+`;
 export const SearchForm__InputWrapper = styled.div`
 	width: 100%;
 	border-radius: 10px;
@@ -12,6 +14,7 @@ export const SearchForm__InputWrapper = styled.div`
 	display: flex;
 	align-items: center;
 	gap: 8px;
+	cursor: pointer;
 `;
 export const SearchForm__InputField = styled.input`
 	width: 100%;
@@ -39,4 +42,9 @@ export const StyledSearchFormClearButton = styled.img`
 		opacity: 0.7;
 		transition: all 0.3s ease-in-out;
 	}
+`;
+export const StyledSearchFormDropDownWrapper = styled.div`
+	display: flex;
+	align-items: end;
+	justify-content: space-between;
 `;

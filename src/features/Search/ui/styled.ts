@@ -36,5 +36,6 @@ export const Search__ModalWrapper = styled.div`
 	left: 100%;
 	position: absolute;
 	z-index: 1;
+	top: -20px;
 	transform: translateX(-55px);
 `;
