@@ -4,6 +4,7 @@ import {
 	StyledMainWrapper,
 	StyledSidebarRightWrapper,
 } from '@/app/styles/global';
+import { useUserQuery } from '@/entities/user/model/useUserQuery';
 import { Search } from '@/features/Search';
 import { Tabs } from '@/features/Tabs';
 import { Forward } from '@/shared/components/Forward';
@@ -15,6 +16,8 @@ import { Menu } from '@/widgets/Menu';
 import { StyledDashboardCardItem, StyledDashboardCardList, StyledDashboardHeader } from './styled';
 
 export const Dashboard = () => {
+	const { data, isLoading } = useUserQuery();
+	console.log(isLoading, data);
 	return (
 		<>
 			<Menu />
