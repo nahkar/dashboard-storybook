@@ -7,5 +7,6 @@ export const useUserQuery = () => {
 	return useQuery({
 		queryKey: userQueryKeys.me,
 		queryFn: fetchUser,
+		select: (response) => response.data,
 	});
 };

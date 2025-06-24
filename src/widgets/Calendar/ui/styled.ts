@@ -36,7 +36,9 @@ export const Calendar__DataItem = styled.li`
 export const Calendar__DataTimeWrapper = styled.div`
 	width: 110px;
 `;
-export const Calendar__DataTime = styled.span``;
+export const Calendar__DataTime = styled.span`
+	text-transform: lowercase;
+`;
 export const Calendar__DataDescriptionWrapper = styled.div`
 	width: calc(100% - 110px);
 	color: #212b36;

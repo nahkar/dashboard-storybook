@@ -1,5 +1,9 @@
-import { calendarData } from '../models/data';
-import { CalendarType } from '../models/types';
+import { Action } from '@/entities/action/model/types';
+import { useActionsQuery } from '@/entities/action/model/useActionsQuery';
+import { format } from 'date-fns';
+import { useMemo } from 'react';
+
+import { useCalendar } from '../hooks/useCalendar';
 import { ViewAll } from './ViewAll';
 import {
 	Calendar__DataDescriptionWrapper,
@@ -17,29 +21,30 @@ import {
 	Calendar__Wrapper,
 } from './styled';
 
-type Props = {
-	schedule?: CalendarType[];
-};
+export const Calendar = () => {
+	const { data } = useCalendar();
+	if (!data) {
+		return null;
+	}
 
-export const Calendar = ({ schedule = calendarData }: Props) => {
 	return (
 		<Calendar__Wrapper data-testid="calendar">
-			{schedule.map((data, index) => {
+			{data.map(([date, actions], index) => {
 				return (
 					<Calendar__ListWrapper key={index}>
 						<Calendar__ListHeader $isFirst={!index}>
-							<Calendar__HeaderDay>{data.day}</Calendar__HeaderDay>
-							<Calendar__HeaderDate>{data.date}</Calendar__HeaderDate>
+							<Calendar__HeaderDay>{format(date, 'EEEE')}</Calendar__HeaderDay>
+							<Calendar__HeaderDate>{format(date, 'MMMM dd, yyyy')}</Calendar__HeaderDate>
 						</Calendar__ListHeader>
 						<Calendar__DataList>
-							{data.data.map((day) => (
-								<Calendar__DataItem key={day.time}>
+							{actions.map((action) => (
+								<Calendar__DataItem key={action.eventId}>
 									<Calendar__DataTimeWrapper>
-										<Calendar__DataTime>{day.time}</Calendar__DataTime>
+										<Calendar__DataTime>{format(action.date, 'h:mma')}</Calendar__DataTime>
 									</Calendar__DataTimeWrapper>
 									<Calendar__DataDescriptionWrapper>
-										<Calendar__EventName>{day.eventName} </Calendar__EventName>
-										<Calendar__EventAction>{day.action}</Calendar__EventAction>
+										<Calendar__EventName>{action.eventName} </Calendar__EventName>
+										<Calendar__EventAction>{action.key}</Calendar__EventAction>
 									</Calendar__DataDescriptionWrapper>
 								</Calendar__DataItem>
 							))}
@@ -52,4 +57,5 @@ export const Calendar = ({ schedule = calendarData }: Props) => {
 			</Calendar__Footer>
 		</Calendar__Wrapper>
 	);
+
 };

@@ -9,7 +9,7 @@ type Props = {
 	title: string;
 	count?: number;
 };
-export const Search = ({ title, count = 100 }: Props) => {
+export const Search = ({ title, count }: Props) => {
 	const {
 		isOpenModal,
 		handleOpenModal,
@@ -29,6 +29,7 @@ export const Search = ({ title, count = 100 }: Props) => {
 		isShowSearchResult,
 		handleClearForm,
 	} = useSearch();
+
 	return (
 		<Search__Wrapper data-testid="search">
 			<Search__Title>

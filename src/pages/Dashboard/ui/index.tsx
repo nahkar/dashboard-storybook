@@ -4,20 +4,16 @@ import {
 	StyledMainWrapper,
 	StyledSidebarRightWrapper,
 } from '@/app/styles/global';
-import { useUserQuery } from '@/entities/user/model/useUserQuery';
-import { Search } from '@/features/Search';
 import { Tabs } from '@/features/Tabs';
 import { Forward } from '@/shared/components/Forward';
 import { Activity } from '@/widgets/Activity';
 import { Calendar } from '@/widgets/Calendar';
-import { Card } from '@/widgets/Card';
+import { Events } from '@/widgets/Events';
 import { Menu } from '@/widgets/Menu';
 
-import { StyledDashboardCardItem, StyledDashboardCardList, StyledDashboardHeader } from './styled';
+import { StyledDashboardHeader } from './styled';
 
 export const Dashboard = () => {
-	const { data, isLoading } = useUserQuery();
-	console.log(isLoading, data);
 	return (
 		<>
 			<Menu />
@@ -34,19 +30,7 @@ export const Dashboard = () => {
 					</StyledDashboardHeader>
 					<Tabs initialActiveIndex={1} />
 					<StyledContainer $mb={10} />
-					<Search title="Event List" />
-					<StyledContainer $mb={10} />
-					<StyledDashboardCardList>
-						<StyledDashboardCardItem>
-							<Card />
-						</StyledDashboardCardItem>
-						<StyledDashboardCardItem>
-							<Card />
-						</StyledDashboardCardItem>
-						<StyledDashboardCardItem>
-							<Card />
-						</StyledDashboardCardItem>
-					</StyledDashboardCardList>
+					<Events />
 				</StyledContentWrapper>
 				<StyledSidebarRightWrapper>
 					<Activity />

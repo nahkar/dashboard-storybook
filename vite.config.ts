@@ -3,8 +3,26 @@ import path from 'path';
 import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
-const plugins = [react()];
+const plugins = [
+	react({
+		babel: {
+			plugins: [
+				[
+					'babel-plugin-styled-components',
+					{
+						displayName: true,
+						fileName: false,
+						sourceMap: true,
+					},
+				],
+			],
+		},
+	}),
+];
 export default defineConfig({
+	optimizeDeps: {
+		exclude: ['@preact/signals-react/auto'],
+	},
 	resolve: {
 		alias: {
 			'@': path.resolve(__dirname, 'src'),

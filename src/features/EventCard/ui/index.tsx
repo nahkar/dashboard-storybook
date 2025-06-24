@@ -1,3 +1,4 @@
+import { EventCard as EventCardType } from '@/entities/event/model/types';
 import { Button } from '@/features/Button';
 import { FlipCard } from '@/shared/components/FlipCard';
 import linkIcon from '@assets/link.icon.svg';
@@ -17,21 +18,22 @@ import { UpcomingActions } from './UpcomingActions';
 import eventLogo from './img/event_logo.png';
 import moreIcon from './img/more.icon.svg';
 import {
-	Card__ContentInner,
-	Card__ContentWrapper,
-	Card__EventInfo,
-	Card__EventInfoButtonWrapper,
-	Card__EventName,
-	Card__Header,
-	Card__HeaderBtn,
-	Card__LogoNameWrapper,
-	Card__Wrapper,
+	StyledCardContentInner,
+	StyledCardContentWrapper,
+	StyledCardEventInfo,
+	StyledCardEventInfoButtonWrapper,
+	StyledCardEventName,
+	StyledCardHeader,
+	StyledCardHeaderBtn,
+	StyledCardLogoNameWrapper,
+	StyledCardWrapper,
 } from './styled';
 
 type Props = {
 	isIncomplete?: boolean;
+	event: EventCardType;
 };
-export const Card = ({ isIncomplete }: Props) => {
+export const EventCard = ({ isIncomplete, event }: Props) => {
 	const {
 		activeAvailable,
 		handleActiveAvailable,
@@ -42,38 +44,38 @@ export const Card = ({ isIncomplete }: Props) => {
 		isFlipped,
 		handleFlip,
 	} = useCard();
-
+console.log(event);
 	return (
 		<>
 			<FlipCard
 				isFlipped={isFlipped}
 				front={
-					<Card__Wrapper data-testid="card">
-						<Card__Header>
-							<Card__EventInfo>
-								<Card__LogoNameWrapper>
+					<StyledCardWrapper data-testid="card">
+						<StyledCardHeader>
+							<StyledCardEventInfo>
+								<StyledCardLogoNameWrapper>
 									<img src={eventLogo} alt="" />
 									<Box>
-										<Card__EventName>GTV 2023 Pacific</Card__EventName>
-										<Card__EventName>Northwest Qualifier</Card__EventName>
+										<StyledCardEventName>{event.name}</StyledCardEventName>
+										<StyledCardEventName>Northwest Qualifier</StyledCardEventName>
 									</Box>
-								</Card__LogoNameWrapper>
+								</StyledCardLogoNameWrapper>
 								<Box>
-									<Card__EventName>
+									<StyledCardEventName>
 										&nbsp;
-										<Card__HeaderBtn>
+										<StyledCardHeaderBtn>
 											<img src={moreIcon} alt="" />
-										</Card__HeaderBtn>
-									</Card__EventName>
-									<Card__EventName>
+										</StyledCardHeaderBtn>
+									</StyledCardEventName>
+									<StyledCardEventName>
 										&nbsp;
-										<Card__HeaderBtn>
+										<StyledCardHeaderBtn>
 											<img src={linkIcon} alt="" />
-										</Card__HeaderBtn>
-									</Card__EventName>
+										</StyledCardHeaderBtn>
+									</StyledCardEventName>
 								</Box>
-							</Card__EventInfo>
-							<Card__EventInfoButtonWrapper>
+							</StyledCardEventInfo>
+							<StyledCardEventInfoButtonWrapper>
 								<Button isFavorite={isFavorite} handleIsFavorite={handleIsFavorite} type="star" />
 								<Button
 									onClick={handleFlip}
@@ -81,11 +83,11 @@ export const Card = ({ isIncomplete }: Props) => {
 									handleIsActiveAdditionalInfo={handleIsActiveAdditionalInfo}
 									type="info"
 								/>
-							</Card__EventInfoButtonWrapper>
-						</Card__Header>
-						<Card__ContentWrapper $isIncomplete={isIncomplete}>
+							</StyledCardEventInfoButtonWrapper>
+						</StyledCardHeader>
+						<StyledCardContentWrapper $isIncomplete={isIncomplete}>
 							{isIncomplete && <EventIncomplete />}
-							<Card__ContentInner $isIncomplete={isIncomplete}>
+							<StyledCardContentInner $isIncomplete={isIncomplete}>
 								<Box sx={{ width: '50%', display: 'flex', flexDirection: 'column', gap: '10px' }}>
 									<Timer />
 									<Statistics />
@@ -97,37 +99,37 @@ export const Card = ({ isIncomplete }: Props) => {
 										handleActiveAvailable={handleActiveAvailable}
 									/>
 								</Box>
-							</Card__ContentInner>
-						</Card__ContentWrapper>
-					</Card__Wrapper>
+							</StyledCardContentInner>
+						</StyledCardContentWrapper>
+					</StyledCardWrapper>
 				}
 				back={
-					<Card__Wrapper>
-						<Card__Header>
-							<Card__EventInfo>
-								<Card__LogoNameWrapper>
+					<StyledCardWrapper>
+						<StyledCardHeader>
+							<StyledCardEventInfo>
+								<StyledCardLogoNameWrapper>
 									<img src={eventLogo} alt="" />
 									<Box>
-										<Card__EventName>GTV 2023 Pacific</Card__EventName>
-										<Card__EventName>Northwest Qualifier</Card__EventName>
+										<StyledCardEventName>GTV 2023 Pacific</StyledCardEventName>
+										<StyledCardEventName>Northwest Qualifier</StyledCardEventName>
 									</Box>
-								</Card__LogoNameWrapper>
+								</StyledCardLogoNameWrapper>
 								<Box>
-									<Card__EventName>
+									<StyledCardEventName>
 										&nbsp;
-										<Card__HeaderBtn>
+										<StyledCardHeaderBtn>
 											<img src={moreIcon} alt="" />
-										</Card__HeaderBtn>
-									</Card__EventName>
-									<Card__EventName>
+										</StyledCardHeaderBtn>
+									</StyledCardEventName>
+									<StyledCardEventName>
 										&nbsp;
-										<Card__HeaderBtn>
+										<StyledCardHeaderBtn>
 											<img src={linkIcon} alt="" />
-										</Card__HeaderBtn>
-									</Card__EventName>
+										</StyledCardHeaderBtn>
+									</StyledCardEventName>
 								</Box>
-							</Card__EventInfo>
-							<Card__EventInfoButtonWrapper>
+							</StyledCardEventInfo>
+							<StyledCardEventInfoButtonWrapper>
 								<Button isFavorite={isFavorite} handleIsFavorite={handleIsFavorite} type="star" />
 								<Button
 									onClick={handleFlip}
@@ -135,11 +137,11 @@ export const Card = ({ isIncomplete }: Props) => {
 									handleIsActiveAdditionalInfo={handleIsActiveAdditionalInfo}
 									type="info"
 								/>
-							</Card__EventInfoButtonWrapper>
-						</Card__Header>
-						<Card__ContentWrapper $isIncomplete={isIncomplete}>
+							</StyledCardEventInfoButtonWrapper>
+						</StyledCardHeader>
+						<StyledCardContentWrapper $isIncomplete={isIncomplete}>
 							{isIncomplete && <EventIncomplete />}
-							<Card__ContentInner $isIncomplete={isIncomplete}>
+							<StyledCardContentInner $isIncomplete={isIncomplete}>
 								<Box sx={{ width: '50%', display: 'flex', flexDirection: 'column', gap: '10px' }}>
 									<LocationInfo />
 									<DateInfo />
@@ -148,9 +150,9 @@ export const Card = ({ isIncomplete }: Props) => {
 									<PriceInfo />
 									<TicketInfo />
 								</Box>
-							</Card__ContentInner>
-						</Card__ContentWrapper>
-					</Card__Wrapper>
+							</StyledCardContentInner>
+						</StyledCardContentWrapper>
+					</StyledCardWrapper>
 				}
 			/>
 		</>

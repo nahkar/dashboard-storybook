@@ -1,6 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import { Calendar } from '.';
+
+const queryClient = new QueryClient();
 
 const meta = {
 	title: 'widgets/Calendar',
@@ -13,7 +16,12 @@ const meta = {
 	args: {},
 	decorators: [
 		(Component) => {
-			return <Component />;
+			// add provider
+			return (
+				<QueryClientProvider client={queryClient}>
+					<Component />
+				</QueryClientProvider>
+			);
 		},
 	],
 } satisfies Meta<typeof Calendar>;

@@ -88,6 +88,7 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeT; $isMenuOpen: boole
       background: #F4F6F8;
       padding: 0;
       margin: 0;
+			overflow: hidden;
   }
   body {
     padding: ${({ $isMenuOpen }) => ($isMenuOpen ? '0 0 0 253px' : '0 0 0 100px')};
@@ -116,13 +117,20 @@ export const GlobalStyle = createGlobalStyle<{ theme: ThemeT; $isMenuOpen: boole
 export const StyledMainWrapper = styled.div`
 	gap: 30px;
 	display: flex;
+	height: calc(100vh - 60px);
 `;
 export const StyledContentWrapper = styled.div`
-	min-width: 739px;
-	max-width: 739px;
+	min-width: 759px;
+	max-width: 759px;
+	overflow-y: auto;
+	min-height: calc(100vh - 60px);
+	padding: 0 10px;
 `;
 export const StyledSidebarRightWrapper = styled.div`
-	width: 100%;
+	width: calc(100% - 30px);
+	overflow-y: auto;
+	min-height: calc(100vh - 60px);
+	padding: 0 15px;
 `;
 export const StyledContainer = styled.div<{ $mb?: number; $width?: number }>`
 	margin-bottom: ${({ $mb }) => $mb || 0}px;

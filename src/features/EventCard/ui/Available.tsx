@@ -1,11 +1,11 @@
 import { availableEventsData } from '../models/data';
 import { AvailableEvent } from '../models/types';
 import {
-	Card__AvailableCheckBoxItem,
-	Card__AvailableCheckBoxList,
-	Card__AvailableHeader,
-	Card__AvailableTitle,
-	Card__AvailableWrapper,
+	StyledCardAvailableCheckBoxItem,
+	StyledCardAvailableCheckBoxList,
+	StyledCardAvailableHeader,
+	StyledCardAvailableTitle,
+	StyledCardAvailableWrapper,
 } from './styled';
 
 type Props = {
@@ -20,21 +20,21 @@ export const Available = ({
 	availableEvents = availableEventsData,
 }: Props) => {
 	return (
-		<Card__AvailableWrapper>
-			<Card__AvailableHeader>
-				<Card__AvailableTitle>Available for this event:</Card__AvailableTitle>
-			</Card__AvailableHeader>
-			<Card__AvailableCheckBoxList>
+		<StyledCardAvailableWrapper>
+			<StyledCardAvailableHeader>
+				<StyledCardAvailableTitle>Available for this event:</StyledCardAvailableTitle>
+			</StyledCardAvailableHeader>
+			<StyledCardAvailableCheckBoxList>
 				{availableEvents?.map((event) => (
-					<Card__AvailableCheckBoxItem
+					<StyledCardAvailableCheckBoxItem
 						key={event.id}
 						$isActive={activeAvailable.includes(event.id)}
 						onClick={(e) => handleActiveAvailable(e, event.id)}
 					>
 						{event.name}
-					</Card__AvailableCheckBoxItem>
+					</StyledCardAvailableCheckBoxItem>
 				))}
-			</Card__AvailableCheckBoxList>
-		</Card__AvailableWrapper>
+			</StyledCardAvailableCheckBoxList>
+		</StyledCardAvailableWrapper>
 	);
 };
